@@ -1,0 +1,259 @@
+html {
+    height: 100%;
+}
+header{
+    margin: 25px 0px;
+    background-color: #56fff46b;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+h1 {
+    color: #FFFFFF;
+    font-size: 50px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+h3{
+    color: #FFFFFF;
+    text-align: center;
+}
+main {
+    flex: 1 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+}
+main a{
+    filter: drop-shadow(1px 1px 1px #000000);
+}
+footer{
+    margin: 25px 0 25px 0;
+    background-color: #00c0b35d;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+nav {
+    margin: 20px 20px 20px 0px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+nav > div {
+    width: 14%;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+nav a {
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 2vw;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    filter: drop-shadow(2px 2px 4px #000000);
+}
+footer a{
+    display: inline;
+    font-size: 2vw;
+    margin: 10px 0 20px 0;
+    filter: drop-shadow(2px 2px 4px #000000);
+}
+a {
+    text-decoration: none;
+    color: #c7ffdf;
+}
+a:hover {
+    color: #fdffbe;
+}
+.submenu {
+    z-index: 0;
+    display: none;
+    position: absolute;
+    top: 0.1vw;
+    left: 0px;
+    width: 100%;
+    margin: auto;
+}
+.submenu a{
+    margin: auto;
+    filter: drop-shadow(2px 2px 4px #000000);
+}
+.smartWatch{
+    display: none;
+}
+.surmenu{
+    z-index: 30;
+}
+div:hover > .submenu {
+    display: inline;
+    padding-top: 2.5vw;
+}
+body{
+    min-height: 99vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(../img/wallpaper.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+#accueil{
+    width: 13vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 25px 0 25px 25px;
+}
+header img{
+    max-width: 100%;
+    filter:  invert(99%) sepia(56%) saturate(642%) hue-rotate(66deg) brightness(100%) contrast(102%) drop-shadow(2px 2px 4px #000000);
+    object-fit: contain;
+}
+header img:hover{
+    filter:  invert(98%) sepia(75%) saturate(743%) hue-rotate(322deg) brightness(110%) contrast(102%) drop-shadow(2px 2px 4px #000000);
+}
+.burger{
+    display: none;
+}
+.titre{
+    width: 90%;
+    font-size: xx-large;
+    text-align: left;
+    font-weight: bold;
+}
+.mainTexte {
+    background-clip: padding-box;
+    padding: 20px;
+    border: 30px solid #00e4d55d;
+    font-size: larger;
+    background-color: #ffffffbb;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.footerTexte{
+    margin: 10px;
+    padding: 10px;
+    font-size: larger;
+    background-color: #ffffffbb;
+    text-align: center;
+}
+.footerTexte p{
+    margin: 5px;
+}
+
+@media(max-width:768px){
+    main{
+        width: 95%;
+    }
+    header {
+        flex-direction: column;
+    }
+    footer{
+        width: 95%;
+    }
+    nav{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        font-size: 3.25vw;
+    }
+    nav div {
+        min-width: 145px;
+    }
+    #logo{
+        width: 100%;
+        object-fit: contain;
+        margin: 0px;
+    }
+    #accueil{
+        min-width: 190px;
+        width: 25%;
+        margin: 25px;
+    }
+    div:hover > .submenu{
+        padding-top: 3.5vw;
+    }
+}
+@media(max-width:480px){
+    .burger #menu2{
+        display: none;
+    }
+    .burger {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .burger img {
+        width: 75px;
+    }
+    .burger:hover #menu2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    #menu2 div a{
+        text-align: center;
+        font-size: 50px;
+        filter: drop-shadow(2px 2px 4px #000000);
+    }
+    nav {
+        display: none;
+    }
+    .titre{
+        font-size: larger;
+    }
+    .mainTexte{
+        font-size: large;
+    }
+    footer a{
+        text-align: center;
+        font-size: 30px;
+        filter: drop-shadow(2px 2px 4px #000000);
+    }
+}
+@media(max-width:168px){
+    html body *{display: none;}
+    .smartWatch{
+        display: flex;
+        flex-direction: column;
+    }
+    .smartWatch p{
+        margin-bottom: 0;
+        text-align: center;
+        font-size: medium;
+    }
+    .smartWatch #logo2{
+        filter:  invert(99%) sepia(56%) saturate(642%) hue-rotate(66deg) brightness(100%) contrast(102%) drop-shadow(2px 2px 4px #000000);
+        width: 152px;
+    }
+    .smartWatch *{
+        display: inline;
+        color:white;
+    }
+    body{
+        min-height: 0;
+        height: 152px;
+    }
+}
