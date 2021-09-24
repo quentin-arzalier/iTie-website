@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="aa5930f0-ce2f-4770-b981-5d11cfcb51b9" name="webinfo" url="https://webinfo.iutmontp.univ-montp2.fr/~arzalierq/iTie-website/">
+        <fileTransfer rootFolder="/home/ann2/arzalierq/public_html/iTie-website" accessType="SFTP" host="ftpinfo.iutmontp.univ-montp2.fr" port="22" sshConfigId="ca312d6b-c9f9-49ae-b534-5efe3ba39e1b" sshConfig="arzalierq@ftpinfo.iutmontp.univ-montp2.fr:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
