@@ -1,57 +1,6 @@
 <?php
-require_once('./assets/classes/Model.php');
-$ip = $_SERVER['REMOTE_ADDR'];
-$sql = "SELECT COUNT(*) AS nb FROM iTieupvotes WHERE ipAdress=:adress";
-$req_prep = Model::getPDO()->prepare($sql);
-$canVote = true;
-$value = array(
-    "adress" => $ip,
-);
-try {
-    if (!empty($_POST)){
-        if ($_POST['vote'] == "up"){
-            $int = 1;
-        }
-        else {
-            $int = 0;
-        }
-        $vote_req = Model::getPDO()->prepare("INSERT INTO iTieupvotes (ipAdress, vote) VALUES ('$ip', $int)");
-        $vote_req->execute();
-    }
-    $req_prep->execute($value);
-    $req_prep->setFetchMode(PDO::FETCH_OBJ);
-    $connected = $req_prep->fetchAll();
-    if ($connected[0]->nb != '0'){
-        $canVote = false;
-
-        $pdo_stmt = Model::getPDO()->query("SELECT COUNT(*) as nbUp FROM iTieupvotes WHERE vote=1");
-        $pdo_stmt->setFetchMode(PDO::FETCH_OBJ);
-        $upvotes = $pdo_stmt->fetchAll()[0]->nbUp;
-
-        $pdo_stmt2 = Model::getPDO()->query("SELECT COUNT(*) as nbDown FROM iTieupvotes WHERE vote=0");
-        $pdo_stmt2->setFetchMode(PDO::FETCH_OBJ);
-        $downvotes = $pdo_stmt2->fetchAll()[0]->nbDown;
-    }
-    else {
-        $content = http_build_query (array (
-            'upvote' => 'Value1',
-        ));
-        $context = stream_context_create (array (
-            'http' => array (
-                'method' => 'POST',
-                'content' => $content,
-            )
-        ));
-
-        $upvotes = null;
-        $downvotes = null;
-    }
-} catch (PDOException $e) {
-    $canVote = false;
-    $connected = null;
-    $upvotes = null;
-    $downvotes = null;
-}
+require_once "assets/classes/Util.php";
+$ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -74,25 +23,7 @@ try {
     </nav>
     <div class="voteBox">
         <?php
-        if ($canVote == true){
-            echo "<p>La iTie vous intéresse-t-elle?</p>";
-            echo "<div>";
-            echo "<form id=\"form1\" action='produit.php' method='POST'>";
-            echo '    <input type="hidden" name="vote" value="up" />';
-            echo "    <button type=\"submit\" form=\"form1\" value=\"upvote\"><img src=\"assets/img/thumb.png\" alt=\"upvote\" class=\"thumb\"></button>";
-            echo "</form>";
-            echo "<form id=\"form2\" action='produit.php' method='POST'>";
-            echo '    <input type="hidden" name="vote" value="down" />';
-            echo "    <button type=\"submit\" form=\"form2\" value=\"downvote\"><img src=\"assets/img/thumb.png\" alt=\"downvote\" class=\"thumb\"></button>";
-            echo "</form>";
-            echo "</div>";
-        } else {
-
-            echo "<p> Les résultats actuels du vote :</p>";
-            echo "<p>$upvotes personnes sont intéressées.</p>";
-            echo "<p>$downvotes personnes ne sont pas intéressées.</p>";
-        }
-
+        $ut->getInfo();
         ?>
     </div>
 </header>
