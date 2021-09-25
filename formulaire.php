@@ -20,19 +20,32 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
         <a href="formulaire.php">Votre avis</a>
         <a href="rejoindre.php">Nous rejoindre</a>
     </nav>
-    <div class="voteBox">
+
+</header>
+<main>
+    <h1>Que pensez vous de notre produit?</h1>
+    <div class="mainTexte">
+        <p class="titre">Votre avis nous intéresse!</p>
+        <p>Puisque notre produit, la iTie, en est encore à sa période de développement, nous vous invitons à répondre à ce court questionnaire afin de nous faire une meilleure idée de ce que vous recherchez dans notre produit.</p>
+        <p>N'hésitez pas à lire le contenu de <a href="produit.php">la page produit</a> avant de répondre afin de comprendre totalement ce qu'est la iTie!</p>
+        <iframe class="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSc8CC-GM5G76VzK4RQa6xpNPieKaxJaz0qpN9xQ1ld1jaARyw/viewform?embedded=true" width="100%" height="750px">Loading…</iframe>
+    </div>
+</main>
+<div id="votePopup">
+    <div id="voteBox">
+        <button onclick="document.getElementById('voteBox').style.display = 'none';document.getElementById('openVote').style.display = 'flex'; localStorage.setItem('collapsed', 'true');">
+            <img src="assets/img/arrow.png" alt="collapse" id="arrow">
+        </button>
         <?php
         $ut->getInfo();
         ?>
     </div>
-</header>
-<main>
-    <h1>Que pensez vous de notre produit?</h1>
-    <div class="mainTexte" style="width: 700px">
-        <p class="titre">Votre avis nous intéresse!</p>
-        <iframe class="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSc8CC-GM5G76VzK4RQa6xpNPieKaxJaz0qpN9xQ1ld1jaARyw/viewform?embedded=true" width="100%" height="750px">Loading…</iframe>
+    <div id="openVote">
+        <button onclick="document.getElementById('voteBox').style.display = 'flex'; document.getElementById('openVote').style.display = 'none'; localStorage.setItem('collapsed', 'false');">
+            <img src="assets/img/arrow.png" alt="expand">
+        </button>
     </div>
-</main>
+</div>
 <footer>
     <div class="footerTexte">
         <p>Tout produit publicité sur ce site appartient à l'entreprise iDesigner.</p>
@@ -42,3 +55,10 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
 </footer>
 </body>
 </html>
+<?php
+echo "<script>
+if (localStorage.getItem('collapsed') === 'true' ){
+document.getElementById('voteBox').style.display = 'none';
+document.getElementById('openVote').style.display = 'flex';
+}
+</script>";?>

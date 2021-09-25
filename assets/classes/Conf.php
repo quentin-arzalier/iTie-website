@@ -18,6 +18,8 @@ class Conf {
 
     static private $debug = True;
 
+    static private $collapse = false;
+
     static public function getHostname() {
         //en PHP l'indice d'un tableau n'est pas forcement un chiffre.
         return self::$databases['hostname'];
@@ -40,6 +42,15 @@ class Conf {
 
     static public function getDebug() {
         return self::$debug;
+    }
+
+    static public function setCollapse($var) {
+        self::$collapse = $var;
+    }
+
+
+    static public function getCollapse() {
+        return self::$collapse;
     }
 
 }

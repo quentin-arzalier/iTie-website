@@ -138,24 +138,43 @@ button {
     border: 0;
     background-color: #00000000;
 }
-.voteBox {
+#votePopup {
+    width: 15%;
+}
+#votePopup > div{
     padding: 10px;
-    margin: 20px;
-    text-align: center;
+    border: 5px solid rgba(107, 144, 255, 0.46);
     background-color: #ffffffbb;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+#votePopup img:hover{
+    filter: invert(31%) sepia(16%) saturate(0%) hue-rotate(272deg) brightness(93%) contrast(84%);
+}
+#voteBox {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    z-index: 2;
 }
-.voteBox div {
+#voteBox #arrow {
+    transform: scaleY(-1);
+}
+#openVote {
+    display: none;
+    z-index: 1;
+}
+#voteBox div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 100%;
 }
-.voteBox p {
+#voteBox p {
     margin-bottom: 0;
 }
 .burger{

@@ -21,11 +21,6 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
         <a href="formulaire.php">Votre avis</a>
         <a href="rejoindre.php">Nous rejoindre</a>
     </nav>
-    <div class="voteBox">
-        <?php
-        $ut->getInfo();
-        ?>
-    </div>
 </header>
 <main>
     <h1>Accueil</h1>
@@ -46,6 +41,21 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
         <p>Merci de votre participation à la vie de notre entreprise!</p>
     </div>
 </main>
+<div id="votePopup">
+    <div id="voteBox">
+        <button onclick="document.getElementById('voteBox').style.display = 'none';document.getElementById('openVote').style.display = 'flex'; localStorage.setItem('collapsed', 'true');">
+            <img src="assets/img/arrow.png" alt="collapse" id="arrow">
+        </button>
+        <?php
+        $ut->getInfo();
+        ?>
+    </div>
+    <div id="openVote">
+        <button onclick="document.getElementById('voteBox').style.display = 'flex'; document.getElementById('openVote').style.display = 'none'; localStorage.setItem('collapsed', 'false');">
+            <img src="assets/img/arrow.png" alt="expand">
+        </button>
+    </div>
+</div>
 <footer>
     <div class="footerTexte">
         <p>Tout produit publicité sur ce site appartient à l'entreprise iDesigner.</p>
@@ -55,3 +65,10 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
 </footer>
 </body>
 </html>
+<?php
+echo "<script>
+if (localStorage.getItem('collapsed') === 'true' ){
+document.getElementById('voteBox').style.display = 'none';
+document.getElementById('openVote').style.display = 'flex';
+}
+</script>";?>
