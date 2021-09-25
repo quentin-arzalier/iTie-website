@@ -17,8 +17,7 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
     <nav>
         <a href="index.php">Accueil</a>
         <a href="produit.php">La iTie</a>
-        <a href="https://forms.gle/XJzrt89RryMzKY5v6">Formulaire d'étude d'impact</a>
-        <!--<a href="faq.php">F.A.Q</a>-->
+        <a href="formulaire.php">Votre avis</a>
         <a href="rejoindre.php">Nous rejoindre</a>
     </nav>
     <div class="voteBox">

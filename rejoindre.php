@@ -17,8 +17,7 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
     <nav>
         <a href="index.php">Accueil</a>
         <a href="produit.php">La iTie</a>
-        <a href="https://forms.gle/XJzrt89RryMzKY5v6">Formulaire d'étude d'impact</a>
-        <!--<a href="faq.php">F.A.Q</a>-->
+        <a href="formulaire.php">Votre avis</a>
         <a href="rejoindre.php">Nous rejoindre</a>
     </nav>
     <div class="voteBox">
@@ -28,10 +27,12 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
     </div>
 </header>
 <main>
-    <h1>La iTie</h1>
+    <h1>Nous rejoindre</h1>
     <div class="mainTexte">
-        <p>page rejoindre uwu</p>
-        <p>Y mettre les infos sur l'offre de stage et tout tavu</p>
+        <p class="titre">En recherche de stage? Nous recrutons!</p>
+        <p>Notre nouvelle entreprise est actuellement à la recherche d'un stagiaire afin d'assister au développement d'une application mobile et de notre entreprise. Pour plus d'informations, veuillez consulter la fiche de poste ci-dessous!</p>
+        <p class="titre"><a href="assets/Fiche-Poste-iDesigner.pdf">La fiche de poste</a> :</p>
+        <embed src="assets/Fiche-Poste-iDesigner.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf"/>
     </div>
 </main>
 <footer>

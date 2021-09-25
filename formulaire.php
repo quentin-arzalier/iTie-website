@@ -17,8 +17,7 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
     <nav>
         <a href="index.php">Accueil</a>
         <a href="produit.php">La iTie</a>
-        <a href="https://forms.gle/XJzrt89RryMzKY5v6">Formulaire d'étude d'impact</a>
-        <!--<a href="faq.php">F.A.Q</a>-->
+        <a href="formulaire.php">Votre avis</a>
         <a href="rejoindre.php">Nous rejoindre</a>
     </nav>
     <div class="voteBox">
@@ -28,9 +27,10 @@ $ut = new Util($_SERVER['REMOTE_ADDR'], $_POST);
     </div>
 </header>
 <main>
-    <h1>La Foire aux Q</h1>
-    <div class="mainTexte">
-        <p>page Faq uwu</p>
+    <h1>Que pensez vous de notre produit?</h1>
+    <div class="mainTexte" style="width: 700px">
+        <p class="titre">Votre avis nous intéresse!</p>
+        <iframe class="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSc8CC-GM5G76VzK4RQa6xpNPieKaxJaz0qpN9xQ1ld1jaARyw/viewform?embedded=true" width="100%" height="750px">Loading…</iframe>
     </div>
 </main>
 <footer>

@@ -189,6 +189,15 @@ button {
     margin: 5px;
 }
 
+.gform {
+    border: 0;
+    height: 60vh;
+}
+embed {
+    width: 50vw;
+    height: 70vw;
+}
+
 @media(max-width:768px){
     main{
         width: 95%;
